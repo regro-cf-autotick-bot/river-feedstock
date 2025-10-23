@@ -24,6 +24,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib("c") }}
     - ${{ compiler('rust') }}
+    - cargo-bundle-licenses
   host:
     - python
     - poetry-core >=1.0.0
