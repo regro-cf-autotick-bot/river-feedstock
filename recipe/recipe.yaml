@@ -15,7 +15,9 @@ source:
 build:
   number: 0
   skip: match(python, "<3.10")
-  script: ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
+  script: 
+    - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+    - ${{ PYTHON }} -m pip install . -vv --no-build-isolation --no-deps
 
 requirements:
   build:
@@ -85,7 +87,9 @@ tests:
 about:
   summary: Online machine learning in Python
   license: BSD-3-Clause
-  license_file: LICENSE
+  license_file: 
+    - LICENSE
+    - THIRDPARTY.yml
   homepage: https://github.com/online-ml/river
 
 extra:
