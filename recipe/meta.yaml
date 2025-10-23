@@ -1,22 +1,23 @@
 {% set name = "river" %}
-{% set version = "0.13.0" %}
+{% set version = "0.22.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/river-{{ version }}.tar.gz
-  sha256: 9d068b7a9db32302fbd581af81315681dfe61774a5d777fb3d5982d3c3061340
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/river-{{ version }}.tar.gz
+  sha256: 8b06840e0d832dbd1064145e56e3f75492402716f5eb733753da3099194a3a68
 
 build:
   skip: true  # [py<38]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('rust') }}
   host:
     - python
