@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: river
-  version: 0.23.0
+  version: "0.24.2"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/river-${{ version }}.tar.gz
-  sha256: f174cb8e5984be1a193827faf8e09a03ceb110a055290628accc72ec987390f1
+  sha256: f4e99546f27c411920c4afaf87d50676e3772b3a718f385f8ab7287384658df0
 
 build:
   number: 0
+  skip:
+    - match(python, "<3.11")
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv
@@ -41,13 +43,14 @@ requirements:
     - pip
   run:
     - python
-    - scipy >=1.14.1,<2
+    - scipy >=1.16,<2
     - pandas >=2.2.3,<3
-    # See https://github.com/online-ml/river/issues/1734
-    - typing_extensions
+    - numpy >=2.3.4,<3
+    - altair >=5.0.0
 
 tests:
   - python:
+      pip_check: true
       imports:
         - river
         - river.active
