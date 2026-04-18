@@ -14,6 +14,8 @@ source:
 
 build:
   number: 0
+  skip:
+    - match(python, "<3.11")
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
     - ${{ PYTHON }} -m pip install . -vv
@@ -41,13 +43,14 @@ requirements:
     - pip
   run:
     - python
-    - scipy >=1.14.1,<2
+    - scipy >=1.16,<2
     - pandas >=2.2.3,<3
-    # See https://github.com/online-ml/river/issues/1734
-    - typing_extensions
+    - numpy >=2.3.4,<3
+    - altair >=5.0.0
 
 tests:
   - python:
+      pip_check: true
       imports:
         - river
         - river.active
