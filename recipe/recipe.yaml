@@ -106,6 +106,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - MaxHalford
     - mxr-conda
     - bubblyorca
     - synapticarbors
