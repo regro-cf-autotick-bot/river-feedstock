@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: river
-  version: "0.24.2"
+  version: "0.25.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/river-${{ version }}.tar.gz
-  sha256: f4e99546f27c411920c4afaf87d50676e3772b3a718f385f8ab7287384658df0
+  sha256: 8756afe90122285a6fe06c5a38fba143bd15f85d8e84f65b661a5edec3a14e3c
 
 build:
-  number: 1
+  number: 0
   skip:
     - match(python, "<3.11")
   script:
