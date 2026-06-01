@@ -27,7 +27,7 @@ requirements:
         - python
         - cross-python_${{ target_platform }}
         - numpy
-        - maturin>=1.13,<2
+        - maturin >=1.13,<2
     - cargo-bundle-licenses
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
@@ -35,7 +35,7 @@ requirements:
     - ${{ compiler('rust') }}
   host:
     - python
-    - maturin>=1.13,<2
+    - maturin >=1.13,<2
     - numpy
     - pip
   run:
