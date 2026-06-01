@@ -27,7 +27,7 @@ requirements:
         - python
         - cross-python_${{ target_platform }}
         - numpy
-        - cython
+        - maturin>=1.13,<2
     - cargo-bundle-licenses
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
@@ -35,16 +35,12 @@ requirements:
     - ${{ compiler('rust') }}
   host:
     - python
-    - poetry-core
-    - setuptools
-    - setuptools-rust
+    - maturin>=1.13,<2
     - numpy
-    - cython
     - pip
   run:
     - python
     - scipy >=1.16,<2
-    - pandas >=2.2.3,<3
     - numpy >=2.3.4,<3
     - altair >=5.0.0
 
